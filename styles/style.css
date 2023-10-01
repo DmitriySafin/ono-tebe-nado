@@ -1,15 +1,12 @@
 /* место для вашего кода */
 /* Стили шапки сайта */
 .header {
-  padding: 92px 49px 92px 51px;
+  padding: 92px 50px 92px 50px;
   box-sizing: border-box;
-  max-width: 1440px;
-  margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
-
 .header__list-links {
   display: flex;
   gap: 0 32px;
@@ -29,13 +26,16 @@
   text-decoration: none;
 }
 .header__logo {
-  width: 148px;
+  display: block;
+  width: 136px;
   align-self: center;
   justify-self: center;
 }
 .adress {
   display: flex;
   flex-direction: column;
+  font-style: normal;
+  max-width: 240px;
 }
 .header__adress {
   justify-self: end;
@@ -48,31 +48,29 @@
   line-height: 24.3px;
 }
 /* Конец стилей для шапки */
-
+.main {
+  box-sizing: border-box;
+}
 /* Стили для Cover */
 .cover {
   position: relative;
-  max-width: 1440px;
-  height: 757px;
-  margin: auto;
   box-sizing: border-box;
   background-image: url(../images/cover.jpg);
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  padding: 146px 25px 36px 48px;
+  padding: 162px 50px 50px 48px;
+  z-index: 1;
 }
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0, 0.6);
+  background-color: rgb(0, 0, 0, 0.6);
+  z-index: -1;
 }
 
-.cover__container-padding {
-  padding: 146px 25px 36px 48px;
-}
 .cover__title {
   color: #fff;
   font-size: 100px;
@@ -81,23 +79,28 @@
   text-transform: uppercase;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
+  gap: 10px;
 }
-
 .aligned-text {
+  display: block;
   align-self: start;
+}
+.aligned-text-center {
+  display: block;
+
+  justify-self: center;
+}
+.aligned-text-right {
+  display: block;
+  justify-self: end;
 }
 
 .letter-spacing-extended {
   letter-spacing: 60px;
 }
 
-.aligned-text-center {
-  justify-self: center;
-}
-.aligned-text-right {
-  justify-self: end;
-  letter-spacing: 30px;
+.no-letter-spacing {
+  letter-spacing: 0;
 }
 
 .cover__decription {
@@ -105,7 +108,7 @@
   align-items: center;
   gap: 0 90px;
   margin-top: 119px;
-  margin-left: 375px;
+  justify-content: end;
 }
 .cover__decription-text {
   color: #fff;
@@ -125,45 +128,51 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
 /* Конец стилей для Cover */
 
 /* Начало секции lots */
 .lots {
-  max-width: 1440px;
-  margin: auto;
   box-sizing: border-box;
-  padding: 206px 50px 181px 50px;
+  padding: 180px 50px 180px 50px;
 }
 .lots__heading {
-  margin: -26px 0 26px 40px;
-}
-.section-heading {
+  color: #000;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
 }
-
+.section-heading {
+  margin-left: 40px;
+  margin-bottom: 27px;
+}
 .lots__card-list {
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
   gap: 25px;
-  justify-content: center;
+  list-style: none;
 }
 .lots__card-list-item {
-  max-width: 430px;
+  flex: 1 1 430px;
   min-height: 450px;
-  flex-grow: 1;
+  margin-bottom: 30px;
 }
 .card__link {
+  width: 100%;
+  height: 100%;
   display: block;
   text-decoration: none;
-  height: 100%;
 }
-
 .card {
   position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px 40px;
+  width: 100%;
   height: 100%;
+  color: #fff;
 }
 .card__type-film {
   background-image: url(../images/card-lot-01.jpg);
@@ -180,15 +189,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.card__container-text {
-  padding: 50px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
+
 .card__title {
-  color: #fff;
   font-size: 22px;
   font-weight: 700;
   line-height: 120%;
@@ -202,21 +204,19 @@
   line-height: 120%;
 }
 .lots__look-more-link {
-  display: inline-block;
-  margin: 30px 0 0 40px;
+  color: #000;
   font-size: 20px;
   font-weight: 400;
+  margin-left: 40px;
 }
 /* Конец секции lots, очень тяжко далось, хотя вроде визуально так всё просто (косяков, море, наверное) */
 .about {
-  max-width: 1440px;
-  margin: auto;
-  padding: 8px 50px 180px;
-  box-sizing: border-box;
+  padding: 0 50px 180px 50px;
 }
 .about__grid {
   display: grid;
-  grid-template-columns: 430px 885px;
+  grid-template-columns: min-content 1fr;
+  column-gap: 27px;
 }
 .about__logo {
   width: 240px;
@@ -226,37 +226,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-self: center;
+  margin: 0 95px;
 }
 .about__logo-image {
   width: 148px;
 }
 .about__column {
-  width: 885px;
-  margin-left: 24px;
-  margin-top: 97px;
+  margin-top: 104px;
 }
 .about__title {
+  color: #000;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 100px;
 }
+.about__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 .about__text {
-  max-width: 885px;
+  color: #000;
   font-size: 20px;
   font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.about__text:last-child {
-  margin-bottom: 0;
 }
 
 .footer {
   padding: 0 50px 90px 50px;
-  max-width: 1440px;
-  margin: auto;
   box-sizing: border-box;
   display: flex;
   align-items: start;

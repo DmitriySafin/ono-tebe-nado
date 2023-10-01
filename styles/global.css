@@ -5,9 +5,12 @@
 }
 
 body {
+  max-width: 1440px;
+  margin: auto;
   min-width: 1100px;
-  margin: 0;
   font-family: Raleway;
+  /* padding-left: 50px;
+  padding-right: 50px; */
 }
 
 h1,
